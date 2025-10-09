@@ -4,6 +4,8 @@ import { WalletInfo } from "./components/WalletInfo";
 import { NFTGalleryWeb3 } from "./components/NFTGalleryWeb3";
 import { NFTTransfer } from "./components/NFTTransfer";
 import { ETHTransfer } from "./components/ETHTransfer";
+import TokenBalance from "./components/TokenBalance";
+
 
 export default function Home() {
   return (
@@ -20,12 +22,16 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex-1 p-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full max-w-7xl mx-auto">
           <div className="w-full">
             <WalletInfo />
+         
           </div>
           <div className="w-full">
             <ETHTransfer />
+          </div>
+          <div className="w-full">
+            <TokenBalance />
           </div>
           <div className="w-full">
             <NFTGalleryWeb3 />

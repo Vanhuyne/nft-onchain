@@ -8,9 +8,11 @@ import { base, baseSepolia } from 'wagmi/chains';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 
+
+
 export const config = getDefaultConfig({
   appName: 'Base Chain App',
-  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'be63c666d855988f759d93e4eb2e2795',
   chains: [base, baseSepolia],
   ssr: true,
 });
