@@ -2,8 +2,6 @@
 
 A comprehensive blockchain-based web application built with Next.js that allows users to manage their tokens and NFTs in one place.
 
-![OnChain App Screenshot](https://placeholder-for-screenshot.com)
-
 ## Features
 
 - **Wallet Integration**: Connect with major Ethereum-compatible wallets
