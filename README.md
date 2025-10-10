@@ -1,33 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OnChain App
+
+A comprehensive blockchain-based web application built with Next.js that allows users to manage their tokens and NFTs in one place.
+
+![OnChain App Screenshot](https://placeholder-for-screenshot.com)
+
+## Features
+
+- **Wallet Integration**: Connect with major Ethereum-compatible wallets
+- **Token Management**:
+  - View token balances across multiple chains
+  - Transfer tokens to any address
+- **NFT Capabilities**:
+  - Browse your NFT collection in a visual gallery
+  - Transfer NFTs to other wallets
+- **Multi-Chain Support**:
+  - Ethereum Mainnet
+  - Base
+  - Arbitrum
+- **Transaction Tracking**: View your transaction history
+
+## Tech Stack
+
+- **Frontend Framework**: Next.js 15
+- **Blockchain Integration**: 
+  - wagmi v2
+  - viem
+  - web3.js
+  - RainbowKit v2
+  - Reown AppKit
+- **Styling**: TailwindCSS v4
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+ 
+- A wallet with Base, Ethereum or Arbitrum assets
+- Alchemy API key (for enhanced RPC connections)
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_ALCHEMY_API_KEY=your_alchemy_api_key
+NEXT_PUBLIC_PROJECT_ID=your_reown_project_id
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Run the development server
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/
+    components/      # Reusable UI components
+    config/          # Blockchain configuration
+    contracts/       # Smart contract interfaces
+    nfts/            # NFT-related pages
+    tokens/          # Token-related pages
+    transactions/    # Transaction history
+    wallet/          # Wallet information
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
+
+This project can be deployed on Vercel or any other Next.js-compatible hosting service.
+
+```bash
+# Build for production
+npm run build
+
+# Start the production server
+npm start
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org/)
+- [wagmi](https://wagmi.sh/)
+- [Reown AppKit](https://reown.xyz/appkit)
+- [TailwindCSS](https://tailwindcss.com/)
 
 ## Deploy on Vercel
 
