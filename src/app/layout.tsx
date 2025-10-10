@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Providers } from './providers'; // Make sure you have this providers component for Wagmi/RainbowKit
-
+import ContextProvider from './providers';
+import { headers } from 'next/headers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -10,15 +10,18 @@ export const metadata: Metadata = {
   description: 'An application for interacting with blockchain assets',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const headersObj = await headers();
+  const cookies = headersObj.get('cookie')
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <ContextProvider cookies={cookies}>{children}</ContextProvider>
       </body>
     </html>
   );

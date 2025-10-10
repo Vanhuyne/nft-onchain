@@ -1,6 +1,6 @@
 'use client';
 
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 import Image from "next/image";
 import { Layout } from './components/Layout';
 import Link from 'next/link';
@@ -18,6 +18,7 @@ export default function Home() {
 
   return (
     <Layout>
+      
       <div className="max-w-5xl mx-auto">
         {/* Hero Section */}
         <section className="text-center py-12">

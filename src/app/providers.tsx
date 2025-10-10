@@ -1,30 +1,47 @@
-'use client';
+'use client'
 
-import '@rainbow-me/rainbowkit/styles.css';
-import { useState, type ReactNode } from 'react';
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { WagmiProvider } from 'wagmi';
-import { base, baseSepolia } from 'wagmi/chains';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { wagmiAdapter, projectId } from './config/index'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { createAppKit } from '@reown/appkit/react'
+import { mainnet, arbitrum, base } from '@reown/appkit/networks'
+import React, { type ReactNode } from 'react'
+import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
 
+// Set up queryClient
+const queryClient = new QueryClient()
 
+if (!projectId) {
+  throw new Error('Project ID is not defined')
+}
 
-export const config = getDefaultConfig({
-  appName: 'Base Chain App',
-  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'be63c666d855988f759d93e4eb2e2795',
-  chains: [base, baseSepolia],
-  ssr: true,
-});
+// Set up metadata
+const metadata = {
+  name: 'appkit-example',
+  description: 'AppKit Example',
+  url: 'https://appkitexampleapp.com', // origin must match your domain & subdomain
+  icons: ['https://avatars.githubusercontent.com/u/179229932']
+}
 
-export function Providers(props: { children: ReactNode }) {
-  const [queryClient] = useState(() => new QueryClient());
+// Create the modal
+const modal = createAppKit({
+  adapters: [wagmiAdapter],
+  projectId,
+  networks: [mainnet, arbitrum , base],
+  defaultNetwork: base,
+  metadata: metadata,
+  features: {
+    analytics: true // Optional - defaults to your Cloud configuration
+  }
+})
+
+function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
+  const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
 
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>{props.children}</RainbowKitProvider>
-      </QueryClientProvider>
+    <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </WagmiProvider>
-  );
+  )
 }
+
+export default ContextProvider

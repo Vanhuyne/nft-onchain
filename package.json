@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^2.2.8",
+    "@reown/appkit": "^1.8.9",
+    "@reown/appkit-adapter-wagmi": "^1.8.9",
+    "@reown/appkit-common": "^1.8.9",
+    "@reown/appkit-wallet-button": "^1.8.9",
     "@tanstack/react-query": "^5.90.2",
     "next": "15.5.4",
     "react": "19.1.0",

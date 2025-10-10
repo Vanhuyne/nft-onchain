@@ -1,7 +1,7 @@
 'use client';
 
+import { ConnectButton } from './ConnectButton';
 import { Navigation } from './Navigation';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +13,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <header className="bg-white border-b border-gray-200 py-3 px-6 flex justify-between items-center">
           <h1 className="text-lg font-semibold text-gray-800">OnChain App</h1>
           <ConnectButton />
-        </header>
+            </header>
         
         {/* Main Content */}
         <main className="flex-1 overflow-auto p-6">
